@@ -23,11 +23,11 @@
         throw new Error("Треугольник с такими сторонами не существует");
       }
     }
-    getPerimeter() {
+    get Perimeter() {
       return this.a + this.b + this.c;
     }
-    getArea() {
-      let p = this.getPerimeter() / 2;
+    get Area() {
+      let p = this.Perimeter / 2;
       return Number.parseFloat(Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)).toFixed(3));
     }
   }
@@ -37,8 +37,12 @@
       return new Triangle(a, b, c);
     } catch (error) {
       return {
-        getPerimeter: () => "Ошибка! Треугольник не существует",
-        getArea: () => "Ошибка! Треугольник не существует"
+        get Perimeter () {
+          return "Ошибка! Треугольник не существует";
+        },
+        get Area () {
+          return "Ошибка! Треугольник не существует";
+        }
       }
     }
   }
